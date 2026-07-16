@@ -60,5 +60,6 @@ mise install              # oracle-graalvm-25.0.3 설치 (mise.toml)
   - Jackson 3: `tools.jackson.module:jackson-module-kotlin` (`com.fasterxml` 아님)
 - 의존성 버전은 반드시 `gradle/libs.versions.toml` 버전 카탈로그로 관리
 - `build.gradle.kts`의 GraalVM `buildArgs`와 주석은 네이티브 빌드 실패 회피용 — 임의 삭제 금지
+- Mockito 기반 테스트(`@MockitoBean`/`@WebMvcTest` 등)는 런타임 바이트코드 생성이 필요해 네이티브 이미지(`nativeTest`)에서 동작 불가 → `@DisabledInNativeImage` 필수 (ArchUnit/Konsist 테스트도 동일)
 - 샘플 `Memo` 도메인 삭제 시 KonsistTest 규칙도 함께 정리할 것 (Konsist `assertTrue`는 빈 리스트에서 예외 발생)
 - `mise.toml`, `HELP.md`는 `.gitignore` 대상 (커밋되지 않는 것이 정상)
