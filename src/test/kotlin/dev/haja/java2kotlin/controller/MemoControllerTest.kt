@@ -3,6 +3,7 @@ package dev.haja.java2kotlin.controller
 import dev.haja.java2kotlin.service.MemoNotFoundException
 import dev.haja.java2kotlin.service.MemoService
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.condition.DisabledInNativeImage
 import org.mockito.BDDMockito.given
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest
@@ -12,6 +13,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 
+@DisabledInNativeImage // Mockito(@MockitoBean)는 런타임 바이트코드 생성이 필요해 네이티브 이미지에서 동작 불가
 @WebMvcTest(MemoController::class)
 class MemoControllerTest @Autowired constructor(
     private val mockMvc: MockMvc,
