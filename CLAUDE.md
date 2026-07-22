@@ -63,3 +63,4 @@ mise install              # oracle-graalvm-25.0.3 설치 (mise.toml)
 - Mockito 기반 테스트(`@MockitoBean`/`@WebMvcTest` 등)는 런타임 바이트코드 생성이 필요해 네이티브 이미지(`nativeTest`)에서 동작 불가 → `@DisabledInNativeImage` 필수 (ArchUnit/Konsist 테스트도 동일)
 - 샘플 `Memo` 도메인 삭제 시 KonsistTest 규칙도 함께 정리할 것 (Konsist `assertTrue`는 빈 리스트에서 예외 발생)
 - `mise.toml`, `HELP.md`는 `.gitignore` 대상 (커밋되지 않는 것이 정상)
+- `gradle/verification-metadata.xml`의 `<trusted-artifacts>`는 인텔리제이 sync 전용 아티팩트(sources jar, IDE 내장 `kotlin-reflect`) 검증 실패 방지용 — 임의 삭제 금지. 인텔리제이에서만 `Dependency verification failed`가 나면 검증을 끄지 말고 실패 로그의 아티팩트를 `<trust>` 항목으로 좁게 추가할 것
