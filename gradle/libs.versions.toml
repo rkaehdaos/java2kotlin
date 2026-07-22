@@ -7,7 +7,7 @@ graalvm-buildtools = "1.1.4"
 archunit = "1.4.2"
 konsist = "0.17.3"
 kotest = "6.2.3"
-pmd = "7.24.0"
+pmd = "7.26.0"
 kover = "0.9.9"
 sonarqube = "7.3.1.8318"
 
